@@ -4,8 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="stylesheets/style.css">
 </head>
 <body>
-    <h1>bado <%=69+36 %></h1>
+    <div class="main w-full bg-zinc-900 min-h-screen text-white">
+
+        <div class="form p-10">
+            <form action="/create" method="post">
+                <input class="block px-3 py-2 outline-none bg-zinc-700 rounded-md w-full" type="text" placeholder="Title goes here..." name="title">
+
+                <textarea class="block px-3 py-2 outline-none bg-zinc-700 resize-none my-3 rounded-md w-full h-40" placeholder="Write your tasks here..." name="details"></textarea>
+
+                <input class="px-3 py-1 bg-sky-900 cursor-pointer rounded" type="submit" value="Add task">
+            </form>
+        </div>
+
+        <div class="tasks p-10 flex flex-wrap gap-3">
+
+            <% if(files.length > 0){ %>
+                <% files.forEach((val)=>{ %>           
+                    <div class="bg-zinc-700 min-w-72 px-3 py-4 rounded-md">
+                        <h1 class="text-2xl"><%= val %></h1>
+                        <a class="text-blue-500 inline-block mt-2" href="/file/<%= val %>">Read more</a>
+
+                    </div>
+               <% }) %>
+             <% } else { %>
+                 <h3 class="text-zinc-500">No task found</h3>
+            <% } %>
+        </div>
+    </div>
+
+
+    <script src="/javascripts/script.js"></script>
 </body>
 </html>
