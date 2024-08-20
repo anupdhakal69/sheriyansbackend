@@ -1,0 +1,3 @@
+http = protocol
+--yo protocol bina internet ma na kei pathauna milchha na kei lina milchha 
+--http kai kaaran le data ek thau bata arko thauma janchha
